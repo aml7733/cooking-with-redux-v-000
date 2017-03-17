@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 
 export class Recipes extends Component {
   render(){
+    let recipes = this.props.recipes.map((recipe) => {
+      return <li>{recipe.name}</li>
+    })
     return(
         <div>
           <ul>
-            Recipes
+            {recipes}
           </ul>
         </div>
     )
@@ -13,4 +16,8 @@ export class Recipes extends Component {
 }
 
 
-export const ConnectedRecipes = (Recipes)
+export const ConnectedRecipes = connect(mapStateToProps)(Recipes)
+
+function mapStateToProps(state) {
+  return {recipes: state.recipes}
+}

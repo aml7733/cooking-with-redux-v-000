@@ -1,3 +1,6 @@
-export default function notTheRightReducer(state = 'default', action){
+import { combineReducers } from 'redux';
+
+
+export default function rootReducer(state = 'default', action){
   return state;
 }
